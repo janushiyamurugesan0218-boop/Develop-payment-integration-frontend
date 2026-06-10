@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment Integration Frontend</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.payment-container{
+    width:100%;
+    max-width:900px;
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+    display:grid;
+    grid-template-columns:1fr 1fr;
+}
+
+/* Order Summary */
+.order-summary{
+    background:#1e293b;
+    color:#fff;
+    padding:30px;
+}
+
+.order-summary h2{
+    margin-bottom:25px;
+}
+
+.order-item{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:15px;
+}
+
+.total{
+    margin-top:20px;
+    padding-top:15px;
+    border-top:1px solid rgba(255,255,255,0.3);
+    font-size:24px;
+    font-weight:bold;
+}
+
+/* Payment Form */
+.payment-form{
+    padding:30px;
+}
+
+.payment-form h2{
+    margin-bottom:20px;
+    color:#333;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+label{
+    display:block;
+    margin-bottom:6px;
+    font-weight:bold;
+    color:#444;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:6px;
+    font-size:15px;
+}
+
+.row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.payment-methods{
+    display:flex;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+.method{
+    flex:1;
+    text-align:center;
+    padding:12px;
+    border:2px solid #ddd;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.method:hover{
+    border-color:#2563eb;
+}
+
+.method.active{
+    border-color:#2563eb;
+    background:#eff6ff;
+}
+
+.pay-btn{
+    width:100%;
+    padding:14px;
+    border:none;
+    background:#16a34a;
+    color:white;
+    font-size:16px;
+    border-radius:6px;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+.pay-btn:hover{
+    background:#15803d;
+}
+
+.secure-text{
+    text-align:center;
+    margin-top:10px;
+    font-size:14px;
+    color:#666;
+}
+
+/* Responsive */
+@media(max-width:768px){
+    .payment-container{
+        grid-template-columns:1fr;
+    }
+
+    .row{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="payment-container">
+
+    <!-- Order Summary -->
+    <div class="order-summary">
+        <h2>Order Summary</h2>
+
+        <div class="order-item">
+            <span>Wireless Headphones</span>
+            <span>$99</span>
+        </div>
+
+        <div class="order-item">
+            <span>Smart Watch</span>
+            <span>$149</span>
+        </div>
+
+        <div class="order-item">
+            <span>Shipping</span>
+            <span>$10</span>
+        </div>
+
+        <div class="total">
+            Total: $258
+        </div>
+    </div>
+
+    <!-- Payment Form -->
+    <div class="payment-form">
+
+        <h2>Payment Details</h2>
+
+        <div class="payment-methods">
+            <div class="method active">💳 Card</div>
+            <div class="method">📱 UPI</div>
+            <div class="method">🏦 Net Banking</div>
+        </div>
+
+        <form>
+
+            <div class="form-group">
+                <label>Card Holder Name</label>
+                <input type="text" placeholder="John Doe">
+            </div>
+
+            <div class="form-group">
+                <label>Card Number</label>
+                <input type="text" placeholder="1234 5678 9012 3456">
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label>Expiry Date</label>
+                    <input type="text" placeholder="MM/YY">
+                </div>
+
+                <div class="form-group">
+                    <label>CVV</label>
+                    <input type="password" placeholder="123">
+                </div>
+            </div>
+
+            <button type="submit" class="pay-btn">
+                Pay $258
+            </button>
+
+            <div class="secure-text">
+                🔒 Secure Payment Gateway
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>
